@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="descrição" content="Informatica/TI">
+    <meta name="autor" content="">
+    <title>Cads Computer Lab</title>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/css/prettyPhoto.css" rel="stylesheet">
+    <link href="../../static/css/main.css" rel="stylesheet">
+   
+    <link rel="shortcut icon" href="../../static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <header id="header" role="banner">
+        <div class="container">
+            <div id="navbar" class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">CadsL Compurter Lab</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
+                        <li><a href="#servico">Serviços</a></li>
+                        <li><a href="#pricing">Trabalhos</a></li>
+                        <li><a href="#about-us">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header><!--/#header-->
+
+    <section id="main-slider" class="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>CadsL Computer Lab</h1>
+                        <p class="lead">Nosso compromisso é a execelência nos serviçoes aos clientes.</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>Equipe Especializada</h1>
+                        <p class="lead">Profissionais altamente qualificados para atender nossos clientes.</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>Qualidade e agilidade</h1>
+                        <p class="lead">Caminhamos juntos para um atendimento que supere as expectativas.</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+
+        </div><!--/.carousel-inner-->
+        <a class="prev" href="#main-slider" data-slide="prev"><i class="icon-angle-left"></i></a>
+        <a class="next" href="#main-slider" data-slide="next"><i class="icon-angle-right"></i></a>
+    </section><!--/#main-slider-->
+
+    <section id="servico">
+        <div class="container">
+            <div class="box first">
+            <br><br><br><br><br>
+                
+                <div class="row">
+
+                    {% for service in services %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <img src="{{ service.image.url }}" width="50px">
+                            <h4>{{ service.name }}</h4>
+                            <p>{{service.description}}</p>
+                        </div>
+                        <br><br><br>
+                    </div><!--/.col-md-4-->
+                    {% endfor %}
+
+
+                </div><!--/.row-->
+            </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+
+    <section id="pricing">
+        <div class="container">
+        <br><br><br>
+            <div class="box">
+                <div class="center">
+                    <h2>Últimos trabalhos</h2>
+                    <p class="lead">Confira Nossos Últimos Trabalhos</p>
+                </div><!--/.center-->   
+                <div class="big-gap"></div>
+                <div id="pricing-table" class="row">
+                    
+
+                    {% for last_work in last_works %}
+                    <div class="col-sm-4">
+                        <center><h4>{{last_work.name}}</h4>
+                        <p><img width="250px" class="img-responsive img-thumbnail img-circle" src="{{ last_work.image.url }}" alt="" ></p>
+                        <br><br>
+                        <p>{{last_work.description}}</p></center>
+                    </div><!--/.col-sm-4-->
+                    {% endfor %}
+                </div> 
+            </div> 
+        </div>
+    </section><!--/#pricing-->
+
+    <section id="about-us">
+        <div class="container">
+        <br><br><br>
+            {% for about in abouts %}
+            <div class="box">
+                <div class="center">
+                    <h2>Sobre nós</h2>
+                    
+                    <p class="lead">{{ about.description }}</p>
+                </div>
+                <div class="gap"></div>
+                <div id="team-scroller" class="carousel scale">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="member">
+                                        <p><img class="img-responsive img-thumbnail img-circle" src="{{ about.image.url }}" alt="" ></p>
+                                        <h3>Sandro<small class="designation">Senior Vice President</small></h3>
+                                    </div>
+                                </div>        
+                                <div class="col-sm-4">
+                                    <div class="member">
+                                        <p><img class="img-responsive img-thumbnail img-circle" src="{{ about.image.url }}" alt="" ></p>
+                                        
+                                        <h3>{{ about.name }}</h3>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.carousel-->
+            </div><!--/.box-->
+            {% endfor %}
+        </div><!--/.container-->
+    </section><!--/#about-us-->
+
+    <section id="contact">
+        <div class="container">
+            <div class="box last">
+            <br><br><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Formulário de contato</h1>
+                        <p>Por favor, nos escreva uma e-mail, será um prazer responde-lo(a)</p>
+                        <div class="status alert alert-success" style="display: none"></div>
+                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="nome" required="required" placeholder="Nome">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" required="required" name="email" placeholder="Endereço de Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" required="required" name="mensagem" class="form-control" rows="8" placeholder="Mensagem"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-danger btn-lg">Enviar Mensagem</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--/.col-sm-6-->
+                    <div class="col-sm-6">
+                        <h1>Endereço</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <address>
+                                    <strong>Av. Marechal Floriano Peixoto</strong><br>
+                                    1740 - Centro - Nova Iguaçu<br>
+                                    Stand 16 e 35 <br>
+                                    <abbr title="Phone">Tel:</abbr> (21) 3584 8893
+                                </address>
+                            </div>
+                        </div>
+                        <h1>Redes sociais</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="social">
+                                    <li><a href="#"><i class="icon-facebook icon-social"></i> Facebook</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="social">
+                                    <li><a href="#"><i class="icon-google-plus icon-social"></i> Google Plus</a></li>
+                                </ul>
+                            </div>
+                            <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.1156753640585!2d-43.45007868562887!3d-22.761088038409177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99670108cf76e9%3A0x481ca363a4e432a6!2sAv.+Mal.+Floriano+Peixoto%2C+1740+-+Centro%2C+Nova+Igua%C3%A7u+-+RJ%2C+26220-060!5e0!3m2!1spt-BR!2sbr!4v1475636644339" width="500" height="200" marginwidth="50" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                        </div>
+                    </div><!--/.col-sm-6-->
+                </div><!--/.row-->
+            </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#contact-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">i9Web</a>.Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="../../static/js/jquery.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/jquery.isotope.min.js"></script>
+    <script src="../../static/js/jquery.prettyPhoto.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+</html>
